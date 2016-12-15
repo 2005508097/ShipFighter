@@ -11,6 +11,14 @@ public class Enemy extends GameActor implements Fighter {
 	
 	@Override
 	public void attack(int x, int y) {
+		if(x>(getBoard().getDimension()-1) ||y>(getBoard().getDimension()-1) ){
+			try {
+				throw new BoardSizeExceededException();
+			} catch (BoardSizeExceededException e) {
+				// TODO Auto-generated catch block
+				System.out.println(e.getMessage());
+			}
+		}
 		if(((getBoard().getCells())[x][y].getHit())==false && 
 				((getBoard().getCells())[x][y]).getHasShip()==true ){
 			

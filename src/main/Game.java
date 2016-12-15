@@ -24,7 +24,7 @@ public class Game {
 			y=rand.nextInt(4);
 			if(enemyCells[x][y].getHasShip().equals(false)){
 			((enemyBoard.getCells())[x][y]).setHasShip(true);
-			JOptionPane.showMessageDialog(null,"X: "+x+" "+"Y: "+y);
+			//JOptionPane.showMessageDialog(null,"X: "+x+" "+"Y: "+y);
 			sayac++;
 			}
 		}
@@ -44,7 +44,9 @@ public class Game {
 			x=scan.nextInt()-1;
 			System.out.println("Y coordinate to attack:");
 			y=scan.nextInt()-1;
-			enemy.attack(x, y);
+			try{
+				enemy.attack(x, y);}
+			catch(Exception e){}
 			System.out.println("------------------");
 			System.out.println("Enemy attacks!");
 			System.out.println("X coordinate to attack:");
